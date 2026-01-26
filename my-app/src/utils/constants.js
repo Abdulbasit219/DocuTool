@@ -40,18 +40,6 @@ export const TOOLS = [
     active: true,
   },
   {
-    id: "word-to-pdf",
-    path: "/word-to-pdf",
-    icon: FileText,
-    title: "Word to PDF",
-    desc: "Convert DOCX files to PDF format",
-    color: "from-teal-500 to-teal-600",
-    category: "converter",
-    active: true,
-  },
-
-  // PDF Security
-  {
     id: "encrypt",
     path: "/encrypt",
     icon: Lock,
@@ -61,6 +49,18 @@ export const TOOLS = [
     category: "security",
     active: true,
   },
+  {
+    id: "word-to-pdf",
+    path: "/word-to-pdf",
+    icon: FileText,
+    title: "Word to PDF",
+    desc: "Convert DOCX files to PDF format",
+    color: "from-teal-500 to-teal-600",
+    category: "converter",
+    active: false,
+  },
+
+  // PDF Security
   {
     id: "unlock-pdf",
     path: "/unlock-pdf",

@@ -3,7 +3,7 @@ import os, tempfile, re
 from flask_cors import CORS
 import pikepdf
 from pdf2docx import parse
-from docx2pdf import convert
+# from docx2pdf import convert
 
 app = Flask(__name__)
 CORS(app)
@@ -47,8 +47,8 @@ def pdf_to_word():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/word-to-pdf', methods=['POST'])
-def word_to_pdf():
+# @app.route('/word-to-pdf', methods=['POST'])
+# def word_to_pdf():
     try:
         file = request.files.get('file')
 
