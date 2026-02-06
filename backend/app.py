@@ -49,35 +49,35 @@ def pdf_to_word():
 
 # @app.route('/word-to-pdf', methods=['POST'])
 # def word_to_pdf():
-    try:
-        file = request.files.get('file')
+    # try:
+    #     file = request.files.get('file')
 
-        if not file:
-            return jsonify({'error': 'File required'}), 400
+    #     if not file:
+    #         return jsonify({'error': 'File required'}), 400
 
-        if not file.filename.endswith('.docx'):
-            return jsonify({'error': 'Only Word (.docx) files allowed'}), 400
+    #     if not file.filename.endswith('.docx'):
+    #         return jsonify({'error': 'Only Word (.docx) files allowed'}), 400
 
-        temp_dir = tempfile.gettempdir()
-        safe_name = safe_filename(file.filename)
-        docx_path = os.path.join(temp_dir, safe_name)
-        pdf_path = os.path.join(temp_dir,safe_name.replace('.docx', '.pdf'))
+    #     temp_dir = tempfile.gettempdir()
+    #     safe_name = safe_filename(file.filename)
+    #     docx_path = os.path.join(temp_dir, safe_name)
+    #     pdf_path = os.path.join(temp_dir,safe_name.replace('.docx', '.pdf'))
 
-        file.save(docx_path)
+    #     file.save(docx_path)
 
-        convert(docx_path, pdf_path)
+    #     convert(docx_path, pdf_path)
 
-        os.remove(docx_path)
+    #     os.remove(docx_path)
 
-        return send_file(
-            pdf_path,
-            as_attachment=True,
-            download_name=file.filename.replace('.docx', '.pdf')
-        )
+    #     return send_file(
+    #         pdf_path,
+    #         as_attachment=True,
+    #         download_name=file.filename.replace('.docx', '.pdf')
+    #     )
 
-    except Exception as e:
-        print(e)
-        return jsonify({'error': str(e)}), 500
+    # except Exception as e:
+    #     print(e)
+    #     return jsonify({'error': str(e)}), 500
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt_pdf():

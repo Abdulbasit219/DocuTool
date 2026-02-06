@@ -6,6 +6,7 @@ import SubmitButton from "../components/ui/SubmitButton";
 import toast from "react-hot-toast";
 
 const EncryptPage = () => {
+
   const [file, setFile] = useState(null);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -31,10 +32,13 @@ const EncryptPage = () => {
     const loadingToast = toast.loading("Encrypting your PDF...");
 
     try {
-      const response = await fetch("http://localhost:5000/encrypt", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/encrypt`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
